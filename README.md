@@ -9,6 +9,11 @@ These are the steps you should follow when creating a bug report:
 - If you think the issue is not in Next.js, the best place to ask for help is our [Discord community](https://nextjs.org/discord) or [GitHub discussions](https://github.com/vercel/next.js/discussions). Our community is welcoming and can often answer a project-related question faster than the Next.js core team.
 - Make the reproduction as minimal as possible. Try to exclude any code that does not help reproducing the issue. E.g. if you experience problems with Routing, including ESLint configurations or API routes aren't necessary. The less lines of code is to read through, the easier it is for the Next.js team to investigate. It may also help catching bugs in your codebase before publishing an issue.
 
+## Reproductions 
+- Comment `className` inside `src/pages/_document.tsx`, as you can see the `<p>` element looses his given font (mona-sans) even if there's a main tag inside `_app` that has the variable and is set as `sans` font in `tailwind.config.js`
+- Remove fonts from `main` tag. You can see that the app is unable to display all the fonts and the `className`s to the `html` tag aren't applied.
+- If you try to inspect the text with **fontNinja** or any font inspector, it will tell you that the font used is Light (ie try with the `h1` tag, it should be _Extra Thin_ even with the `font-weight` to `700`)
+
 ## How to use this template
 
 Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
